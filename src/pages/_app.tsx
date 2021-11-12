@@ -1,6 +1,7 @@
 import { AppProps } from "next/app";
 
 import { memo, useEffect } from "react";
+import ReactGA from "react-ga";
 
 import useTheme from "_/theme";
 
@@ -10,7 +11,11 @@ const App = memo(({ router: { route }, Component, pageProps }: AppProps) => {
   const { colors } = useTheme();
 
   useEffect(() => {
-    window.scroll({ behavior: "smooth", top: 0 });
+    ReactGA.initialize("G-RH419E9JV3", { debug: process.env.NODE_ENV !== "production" });
+  }, []);
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }, [route]);
 
   return (
