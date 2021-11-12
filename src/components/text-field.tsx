@@ -63,6 +63,7 @@ const TextField = forwardRef(
     const [hasFocus, setHasFocus] = useState(false);
 
     const value = watch(name, "");
+    const hasValue = typeof value !== "undefined" && value !== null && value !== "";
 
     const { colors } = useTheme();
 
@@ -85,12 +86,12 @@ const TextField = forwardRef(
     return (
       <StyledContainer
         hasFocus={hasFocus}
-        hasValue={!!value}
+        hasValue={hasValue}
         borderColor={colors.neutralTertiary}
         focusBorderColor={colors.themeDark}
         valueBorderColor={colors.themeTertiary}
       >
-        <StyledName hasFocus={hasFocus} hasValue={!!value}>
+        <StyledName hasFocus={hasFocus} hasValue={hasValue}>
           {name}
         </StyledName>
         <StyledInput

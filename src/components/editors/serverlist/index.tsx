@@ -1,5 +1,4 @@
 import { Fragment, memo, useCallback, useMemo, useState } from "react";
-import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { merge } from "lodash";
 
@@ -9,47 +8,20 @@ import useCustomKey from "_/hooks/custom-key";
 
 import Form from "_/components/form";
 import { FormOnUpload } from "_/components/form/types";
+import { useUpload } from "_/components/form/hooks";
+
 import TextField from "_/components/text-field";
-import Button from "_/components/button";
+
+import { StyledCol, StyledGrid } from "_/components/editors/shared/default-form-components";
+import DefaultFormButtons from "_/components/editors/shared/default-form-buttons";
 
 import { FormOnSubmit, StrServerListAny, StrServerListAnyPartialForm, Versions } from "_/components/editors/serverlist/types";
 
 import { STRUCT, STRUCTS_DECODE, STRUCTS_ENCODE, STRUCTS_SIZE } from "_/components/editors/serverlist/consts";
 
 import { ServerAddressField } from "_/components/editors/serverlist/fields";
-import { useUpload } from "_/components/form/hooks";
 
 const UPLOAD_MESSAGE = "Clique aqui para buscar o serverlist.bin";
-
-const StyledGrid = styled.div`
-  flex: 1 1 auto;
-  grid-template-columns: repeat(2, 1fr);
-  display: grid;
-  gap: 2rem;
-  &:not(:last-child) {
-    margin-bottom: 2rem;
-  }
-`;
-
-const StyledCol = styled.div`
-  grid-area: auto / auto;
-  flex-flow: column;
-  display: flex;
-  & > *:not(:last-child) {
-    margin-bottom: 1rem;
-  }
-`;
-
-const StyledButtons = styled.div`
-  flex: 0 0 auto;
-  justify-content: flex-end;
-  align-items: center;
-  flex-flow: row;
-  display: flex;
-  & > *:not(:last-child) {
-    margin-right: 1rem;
-  }
-`;
 
 type FormProps = {
   version: Versions;
@@ -130,14 +102,7 @@ const ServerListForm = memo(({ version }: FormProps) => {
           <StyledCol>{servers}</StyledCol>
           <StyledCol>{ips}</StyledCol>
         </StyledGrid>
-        <StyledButtons>
-          <Button type="button" onClick={onReset}>
-            Resetar
-          </Button>
-          <Button type="submit" primary>
-            Gerar serverlist.bin
-          </Button>
-        </StyledButtons>
+        <DefaultFormButtons onReset={onReset} submitText="Gerar serverlist.bin" />
       </Fragment>
     </Form>
   );

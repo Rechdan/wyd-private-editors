@@ -3,7 +3,7 @@ import { memo } from "react";
 import { Editors as EditorsType } from "_/config";
 
 import ServerListForm from "_/components/editors/serverlist";
-import ServerNameForm from "_/components/editors/servername/form";
+import ServerNameForm from "_/components/editors/servername";
 
 type SwitchProps = {
   editor: EditorsType;

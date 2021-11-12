@@ -1,6 +1,6 @@
 import { SubmitHandler } from "react-hook-form";
 
-import { strServerListBr, strServerListGlobal, strServerName } from "_/components/editors/serverlist/structs";
+import { strServerListBr, strServerListGlobal } from "_/components/editors/serverlist/structs";
 
 // struct
 
@@ -11,12 +11,8 @@ export type StrServerListBr = ReturnType<typeof strServerListBr>;
 export type StrServerListBrForm = Omit<StrServerListBr, "buffer">;
 
 export type StrServerListAny = StrServerListGlobal & StrServerListBr;
-
 export type StrServerListAnyForm = StrServerListGlobalForm & StrServerListBrForm;
 export type StrServerListAnyPartialForm = Partial<StrServerListAnyForm>;
-
-export type StrServerName = ReturnType<typeof strServerName>;
-export type StrServerNameForm = Omit<StrServerName, "buffer">;
 
 // versions
 
