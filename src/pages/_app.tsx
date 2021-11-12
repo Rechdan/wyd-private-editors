@@ -1,7 +1,7 @@
 import { AppProps } from "next/app";
 
 import { memo, useEffect } from "react";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 import useTheme from "_/theme";
 
@@ -14,7 +14,7 @@ const App = memo(({ router: { route }, Component, pageProps }: AppProps) => {
 
   useEffect(() => {
     if (GA_KEY) {
-      ReactGA.initialize(GA_KEY, { debug: process.env.NODE_ENV !== "production" });
+      ReactGA.initialize(GA_KEY);
     }
   }, []);
 
