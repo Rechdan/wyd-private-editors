@@ -17,6 +17,7 @@ import { FormOnSubmit, StrServerListAny, StrServerListAnyPartialForm, Versions }
 import { STRUCT, STRUCTS_DECODE, STRUCTS_ENCODE, STRUCTS_SIZE } from "_/components/editors/serverlist/consts";
 
 import { ServerAddressField } from "_/components/editors/serverlist/fields";
+import { useUpload } from "_/components/form/hooks";
 
 const UPLOAD_MESSAGE = "Clique aqui para buscar o serverlist.bin";
 
@@ -92,6 +93,8 @@ const ServerListForm = memo(({ version }: FormProps) => {
     [getStruct, reset, updateFormkey, version]
   );
 
+  const formUpload = useUpload(onUpload, { upload: UPLOAD_MESSAGE });
+
   const onReset = useCallback(() => {
     reset();
     updateFormkey();
@@ -114,7 +117,7 @@ const ServerListForm = memo(({ version }: FormProps) => {
   }, [register, selectedServer]);
 
   return (
-    <Form formMethods={formMethods} onSubmit={onValidSubmit} onUpload={onUpload} uploadMessage={UPLOAD_MESSAGE}>
+    <Form formMethods={formMethods} onSubmit={onValidSubmit} upload={formUpload}>
       <Fragment key={formKey}>
         {version === "global" && (
           <StyledGrid>

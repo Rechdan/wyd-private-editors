@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import useTheme from "_/theme";
 
-import { FormOnUpload, FormUploadState } from "_/components/form/types";
+import { FormUploadState, UseUploadResponse } from "_/components/form/types";
 
 import { getFormStateAsText } from "_/components/form/functions";
 
@@ -13,6 +13,8 @@ import { FormOnSubmit } from "_/components/editors/serverlist/types";
 type StyledUploadContainerProps = {
   borderColor: string;
 };
+
+const UPLOAD_MESSAGE = "Clique aqui para buscar pelo arquivo";
 
 const StyledForm = styled.form`
   flex: 1 1 auto;
@@ -39,15 +41,12 @@ const StyledFields = styled.div`
 type FormProps = {
   formMethods: UseFormReturn;
   onSubmit: FormOnSubmit;
+  upload?: UseUploadResponse;
   children?: ReactNode;
-  onUpload?: FormOnUpload;
-  uploadMessage?: string;
-  uploadSuccessMessage?: string;
-  uploadErrorMessage?: string;
 };
 
 const Form = forwardRef<HTMLFormElement, FormProps>((props: FormProps, forwardedRef) => {
-  const { formMethods, onSubmit, children, onUpload, uploadMessage } = props;
+  const { formMethods, onSubmit, children, upload } = props;
   const { handleSubmit } = formMethods;
 
   const { colors } = useTheme();
@@ -56,7 +55,7 @@ const Form = forwardRef<HTMLFormElement, FormProps>((props: FormProps, forwarded
 
   const onUploadInputChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
     (e) => {
-      if (onUpload) {
+      if (upload) {
         const target = e.currentTarget;
         if (target) {
           const { files } = target;
@@ -66,7 +65,7 @@ const Form = forwardRef<HTMLFormElement, FormProps>((props: FormProps, forwarded
               const { result } = fr;
               if (result instanceof ArrayBuffer) {
                 const buffer = Buffer.from(result);
-                setLastUploadState(onUpload(buffer));
+                setLastUploadState(upload.event(buffer));
                 target.value = "";
               }
             };
@@ -75,16 +74,16 @@ const Form = forwardRef<HTMLFormElement, FormProps>((props: FormProps, forwarded
         }
       }
     },
-    [onUpload]
+    [upload]
   );
 
   return (
     <FormProvider {...props.formMethods}>
       <StyledForm ref={forwardedRef} onSubmit={handleSubmit(onSubmit)}>
-        {onUpload && uploadMessage && (
+        {upload && (
           <StyledUploadContainer borderColor={colors.neutralTertiary}>
             <p>
-              [{getFormStateAsText(lastUploadState)}]: {uploadMessage}
+              [{getFormStateAsText(lastUploadState)}]: {upload.messages?.upload ?? UPLOAD_MESSAGE}
             </p>
             <input hidden type="file" accept="application/octet-stream" onChange={onUploadInputChange} />
           </StyledUploadContainer>
