@@ -1,16 +1,27 @@
 import { AppProps } from "next/app";
 
 import { memo, useEffect } from "react";
+import ReactGA from "react-ga4";
 
 import useTheme from "_/theme";
 
 import GlobalStyle from "_/assets/styles/global-style";
 
+const GA_KEY = process.env.NEXT_PUBLIC_GA;
+
 const App = memo(({ router: { route }, Component, pageProps }: AppProps) => {
   const { colors } = useTheme();
 
   useEffect(() => {
-    window.scroll({ behavior: "smooth", top: 0 });
+    if (GA_KEY) {
+      ReactGA.initialize(GA_KEY);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (GA_KEY) {
+      ReactGA.send("pageview");
+    }
   }, [route]);
 
   return (
