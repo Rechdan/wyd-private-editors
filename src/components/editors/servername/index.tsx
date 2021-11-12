@@ -36,6 +36,7 @@ const ServerNameForm = memo(() => {
       const struct = getStruct();
       merge(struct, formData);
       const { buffer } = struct;
+      buffer[0] += 100;
       saveFile("sn.bin", buffer);
     },
     [getStruct]
@@ -44,6 +45,7 @@ const ServerNameForm = memo(() => {
   const onUpload = useCallback<FormOnUpload>(
     (buffer) => {
       if (strServerName.size === buffer.length) {
+        buffer[0] -= 100;
         const { name, sort } = getStruct(buffer);
         const newValues = merge({}, { name, sort: sort.filter((v) => v > 0) });
         setDefaultValues(newValues);
