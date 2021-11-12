@@ -20,7 +20,7 @@ const App = memo(({ router: { route }, Component, pageProps }: AppProps) => {
 
   useEffect(() => {
     if (GA_KEY) {
-      ReactGA.pageview(window.location.pathname + window.location.search);
+      ReactGA.send("pageview");
     }
   }, [route]);
 

@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "upgrade": "clear && ncu -t greatest -f \"/eslint/\" -u && ncu -u && yarn --check-files",
-    "dev": "clear && nodemon -w \"./.babelrc\" -w \"./next.config.js\" -e \"*\" -x \"clear && next dev\"",
+    "dev": "clear && nodemon -w \"./.env\" -w \"./.babelrc\" -w \"./next.config.js\" -e \"*\" -x \"clear && next dev\"",
     "lint": "eslint .",
     "build": "next build",
     "start": "next start"
