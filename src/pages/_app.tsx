@@ -7,15 +7,21 @@ import useTheme from "_/theme";
 
 import GlobalStyle from "_/assets/styles/global-style";
 
+const GA_KEY = process.env.NEXT_PUBLIC_GA;
+
 const App = memo(({ router: { route }, Component, pageProps }: AppProps) => {
   const { colors } = useTheme();
 
   useEffect(() => {
-    ReactGA.initialize("G-RH419E9JV3", { debug: process.env.NODE_ENV !== "production" });
+    if (GA_KEY) {
+      ReactGA.initialize(GA_KEY, { debug: process.env.NODE_ENV !== "production" });
+    }
   }, []);
 
   useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    if (GA_KEY) {
+      ReactGA.pageview(window.location.pathname + window.location.search);
+    }
   }, [route]);
 
   return (
