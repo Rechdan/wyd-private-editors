@@ -1,8 +1,8 @@
 import { memo } from "react";
+
 import styled from "styled-components";
 
 import { LINK_GROUPS } from "_/components/editors/navigation/consts";
-
 import Menu from "_/components/editors/navigation/menu";
 
 const StyledContainer = styled.div`

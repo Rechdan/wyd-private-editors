@@ -2,11 +2,9 @@ import { clone } from "lodash";
 
 import CONFIG from "_/config";
 
-import { FormDefault, Struct, StructsEncDev, StructsKey, StructsSize } from "_/components/editors/serverlist/types";
-
-import { strServerListBr, strServerListGlobal } from "_/components/editors/serverlist/structs";
-
 import { decode, encode } from "_/components/editors/serverlist/functions";
+import { strServerListBr, strServerListGlobal } from "_/components/editors/serverlist/structs";
+import { FormDefault, Struct, StructsEncDev, StructsKey, StructsSize } from "_/components/editors/serverlist/types";
 
 // struct
 

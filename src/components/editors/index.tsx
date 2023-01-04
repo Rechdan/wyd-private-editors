@@ -1,13 +1,13 @@
 import { memo } from "react";
+
 import styled from "styled-components";
 
 import { Editors as EditorsType } from "_/config";
 
 import Container from "_/components/container";
-
-import Switch from "_/components/editors/switch";
-import Navigation from "_/components/editors/navigation";
 import Footer from "_/components/editors/footer";
+import Navigation from "_/components/editors/navigation";
+import Switch from "_/components/editors/switch";
 
 const StyledContainer = styled.div`
   flex: 0 0 auto;

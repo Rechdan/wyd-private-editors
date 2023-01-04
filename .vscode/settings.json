@@ -1,3 +1,31 @@
 {
-  "typescript.tsserver.experimental.enableProjectDiagnostics": true
+  // importSorter
+  "importSorter.generalConfiguration.sortOnBeforeSave": true,
+  "importSorter.importStringConfiguration.quoteMark": "double",
+  "importSorter.sortConfiguration.removeUnusedImports": true,
+  "importSorter.sortConfiguration.removeUnusedDefaultImports": true,
+  "importSorter.importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "words",
+  "importSorter.importStringConfiguration.tabSize": 2,
+  "importSorter.sortConfiguration.customOrderingRules.rules": [
+    { "orderLevel": 1, "regex": "^(next)(.*?)" },
+    { "orderLevel": 100, "regex": "^(react)(.*?)" },
+    { "orderLevel": 200, "regex": "^(styled-components)(.*?)" },
+    { "orderLevel": 300, "regex": "^(_/types)(.*?)" },
+    { "orderLevel": 301, "regex": "^(_/config)(.*?)" },
+    { "orderLevel": 302, "regex": "^(_/consts)(.*?)" },
+    { "orderLevel": 303, "regex": "^(_/theme)(.*?)" },
+    { "orderLevel": 304, "regex": "^(_/db)(.*?)" },
+    { "orderLevel": 305, "regex": "^(_/functions)(.*?)" },
+    { "orderLevel": 306, "regex": "^(_/images)(.*?)" },
+    { "orderLevel": 307, "regex": "^(_/styles)(.*?)" },
+    { "orderLevel": 400, "regex": "^(_/stores)(.*?)" },
+    { "orderLevel": 500, "regex": "^(_/helpers)(.*?)" },
+    { "orderLevel": 600, "regex": "^(_/langs)(.*?)" },
+    { "orderLevel": 700, "regex": "^(_/assets)(.*?)" },
+    { "orderLevel": 800, "regex": "^_/(.*?)" },
+    { "orderLevel": 201, "regex": "^(.*?)" }
+  ],
+  // typescript
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

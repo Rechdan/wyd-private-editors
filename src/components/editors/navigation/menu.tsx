@@ -1,9 +1,9 @@
 import { memo } from "react";
+
 import styled from "styled-components";
 
-import { NavigationOptions } from "_/components/editors/navigation/types";
-
 import Link from "_/components/editors/navigation/link";
+import { NavigationOptions } from "_/components/editors/navigation/types";
 
 const StyledContainer = styled.div`
   flex: 0 0 auto;

@@ -4,7 +4,7 @@ import { memo, useEffect } from "react";
 
 import CONFIG from "_/config";
 
-const Page = memo(() => {
+export default memo(() => {
   const { push, route } = useRouter();
 
   useEffect(() => {
@@ -13,5 +13,3 @@ const Page = memo(() => {
 
   return null;
 });
-
-export default Page;

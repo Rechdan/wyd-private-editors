@@ -1,11 +1,14 @@
+import dynamic from "next/dynamic";
+
 import { memo } from "react";
 
 import CONFIG from "_/config";
 
 import Title, { useTitlePath } from "_/components/title";
-import Editors from "_/components/editors";
 
-const Page = memo(() => {
+const Editors = dynamic(() => import("_/components/editors"), { ssr: false });
+
+export default memo(() => {
   const titlePath = useTitlePath(CONFIG.navigation.serverList, CONFIG.editors.serverListGlobal.title);
 
   return (
@@ -15,5 +18,3 @@ const Page = memo(() => {
     </>
   );
 });
-
-export default Page;

@@ -1,20 +1,17 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "node": true
-  },
+  "env": { "browser": true, "es2021": true, "node": true },
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
-    "plugin:react-perf/all",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:react-perf/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@next/next/recommended"
   ],
+  "overrides": [],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaFeatures": { "jsx": true },
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
@@ -24,12 +21,9 @@
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
-    "react/display-name": ["off"],
-    "@typescript-eslint/ban-types": ["error", { "extendDefaults": true, "types": { "{}": false } }]
+    "react/display-name": ["off"]
   },
   "settings": {
-    "react": {
-      "version": "detect"
-    }
+    "react": { "version": "detect" }
   }
 }

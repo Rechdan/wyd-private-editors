@@ -1,12 +1,12 @@
 import { ChangeEventHandler, forwardRef, ReactNode, useCallback, useState } from "react";
 import { FormProvider, SubmitHandler, UseFormReturn } from "react-hook-form";
+
 import styled from "styled-components";
 
 import useTheme from "_/theme";
 
-import { FormUploadState, UseUploadResponse } from "_/components/form/types";
-
 import { getFormStateAsText } from "_/components/form/functions";
+import { FormUploadState, UseUploadResponse } from "_/components/form/types";
 
 type StyledUploadContainerProps = {
   borderColor: string;
@@ -38,7 +38,7 @@ const StyledFields = styled.div`
 
 type FormProps = {
   formMethods: UseFormReturn;
-  onSubmit: SubmitHandler<{}>;
+  onSubmit: SubmitHandler<object>;
   upload?: UseUploadResponse;
   children?: ReactNode;
 };

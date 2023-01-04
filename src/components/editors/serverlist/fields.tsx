@@ -1,12 +1,11 @@
 import { memo, useCallback } from "react";
 import { UseFormRegister } from "react-hook-form";
 
+import { StrServerListAnyForm } from "_/components/editors/serverlist/types";
 import TextField from "_/components/text-field";
 
-import { StrServerListAnyForm } from "_/components/editors/serverlist/types";
-
 type ServerAddressFieldProps = {
-  register: UseFormRegister<StrServerListAnyForm>;
+  register: UseFormRegister<Partial<StrServerListAnyForm>>;
   serverId: number;
   setSelectedServer: (serverId: number) => void;
 };

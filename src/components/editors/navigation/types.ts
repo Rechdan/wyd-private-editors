@@ -10,6 +10,6 @@ export type NavigationOptions = {
 };
 
 export type StyledLinkProps = {
-  normalColor: string;
-  activeColor: string;
+  $normalColor: string;
+  $activeColor: string;
 };

@@ -1,23 +1,19 @@
 import { Fragment, memo, useCallback, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
+
 import { merge } from "lodash";
 
 import saveFile from "_/functions/save-file";
 
-import useCustomKey from "_/hooks/custom-key";
-
-import Form from "_/components/form";
-import { FormOnUpload } from "_/components/form/types";
-import { useUpload } from "_/components/form/hooks";
-
-import TextField from "_/components/text-field";
-
-import { StyledCol, StyledGrid } from "_/components/editors/shared/default-form-components";
-import DefaultFormButtons from "_/components/editors/shared/default-form-buttons";
-
-import { FormOnSubmit, StrServerNamePartialForm } from "_/components/editors/servername/types";
-
 import { strServerName } from "_/components/editors/servername/structs";
+import { FormOnSubmit, StrServerNamePartialForm } from "_/components/editors/servername/types";
+import DefaultFormButtons from "_/components/editors/shared/default-form-buttons";
+import { StyledCol, StyledGrid } from "_/components/editors/shared/default-form-components";
+import Form from "_/components/form";
+import { useUpload } from "_/components/form/hooks";
+import { FormOnUpload } from "_/components/form/types";
+import TextField from "_/components/text-field";
+import useCustomKey from "_/hooks/custom-key";
 
 const UPLOAD_MESSAGE = "Clique aqui para buscar o sn.bin";
 

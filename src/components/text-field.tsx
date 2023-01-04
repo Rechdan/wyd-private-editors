@@ -1,6 +1,7 @@
 import { FocusEventHandler, ForwardedRef, forwardRef, InputHTMLAttributes, useCallback, useState } from "react";
-import styled from "styled-components";
 import { useFormContext, UseFormRegisterReturn } from "react-hook-form";
+
+import styled from "styled-components";
 
 import useTheme from "_/theme";
 
