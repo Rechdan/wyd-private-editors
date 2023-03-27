@@ -1,8 +1,8 @@
 
 # files
-.env
-yarn*
+.env*
+!.env.example
 
 # folders
-.next/
-node_modules/
+.next
+node_modules
